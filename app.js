@@ -32,26 +32,17 @@ function levelup(){
     let rancolor=color[ranidx];
     let ranbtn=document.querySelector(`.${rancolor}`);
     gameseq.push(rancolor);
-    // console.log(gameseq);
-    // console.log(ranidx);
-    // console.log(rancolor);
-    // console.log(ranbtn);
     btnflash(ranbtn);
     if(highestscore<level){
         highestscore=level;
     };
 }
-// if(highestscore<level){
-//     highestscore=level;
-// }
 
 function checkans(idx){
-    // console.log(`current level: ${level}`);
     if(gameseq[idx]===userseq[idx]){
         if(gameseq.length==userseq.length){
             setTimeout(levelup(),2500);
         }
-        // console.log("same value");
     }else{
         h2.innerHTML=`Game over! <b>Your score was ${level} </b><br>press any key to restart the game`;
         document.querySelector("body").style.backgroundColor="red";
@@ -68,11 +59,9 @@ function checkans(idx){
 }
 function btnpresses(){
     let btn=this;
-    // console.log(btn);
     userflash(btn);
     let usercolor=btn.getAttribute("id");
     userseq.push(usercolor);
-    // console.log(userseq);
     checkans(userseq.length-1);
 };
 let allbtns=document.querySelectorAll(".btn");
